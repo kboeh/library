@@ -1,0 +1,145 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-padding-top: 100px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100vh;
+  font-size: 23px;
+  font-family: "Orbitron", sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f1e2;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* width: 100%; */
+  background-color: #ffffff;
+  padding: 0 25.5px 0 15.5px;
+  margin: 52px 80px 0 80px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  /* justify-content: space-between; */
+  /* width: 300px; */
+  text-decoration: none;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-button {
+  background-color: #1b4cf9;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  padding: 10px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+.header-title {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+/* .icons {
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+}
+
+.icons img {
+  width: 30px;
+  height: auto;
+} */
+
+main {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 50px 0 50px 0;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 200px;
+  margin-top: 50px;
+}
+
+.row {
+  height: auto;
+  width: 100%;
+  text-align: center;
+  color: aliceblue;
+}
+
+.row img {
+  width: 100%;
+  height: auto;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 18px;
+  align-self: center;
+  color: aliceblue;
+}
+
+.description {
+  font-size: 14px;
+  height: 20px;
+  margin-bottom: 40px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(80, 80, 206);
+  width: 100%;
+  padding: 20px 50px 20px 50px;
+  color: aliceblue;
+}
+
+footer > button {
+  width: 100px;
+  height: 35px;
+  border-radius: 5px;
+  background-color: orange;
+}
+
+button > a {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  text-decoration: none;
+}
