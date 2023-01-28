@@ -10,12 +10,15 @@ html {
 }
 
 body {
-  height: 100vh;
   font-size: 23px;
   font-family: "Inter", sans-serif;
   display: flex;
   flex-direction: column;
   background-color: #f8f1e2;
+}
+
+body button {
+  cursor: pointer;
 }
 
 nav {
@@ -38,7 +41,7 @@ nav {
   line-height: 24px;
 }
 
-.menu a {
+.nav-links {
   text-decoration: none;
   color: black;
 }
@@ -53,6 +56,7 @@ nav {
   font-size: 20px;
   line-height: 24px;
   color: #ffffff;
+  text-decoration: none;
 }
 
 .header-title {
@@ -344,6 +348,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 80px 117px 80px;
 }
 
 .testimonial-section h2 {
@@ -360,25 +365,88 @@ main {
   margin-bottom: 55px;
 }
 
-footer {
+.testimonial-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 40px;
+}
+
+.testim-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  background-color: rgb(80, 80, 206);
   width: 100%;
-  padding: 20px 50px 20px 50px;
-  color: aliceblue;
 }
 
-footer > button {
-  width: 100px;
-  height: 35px;
-  border-radius: 5px;
-  background-color: orange;
+.quote {
+  width: 368px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
 }
 
-/* button > a {
-  color: rgb(255, 255, 255);
-  font-weight: bold;
+.quoted {
+  font-size: 18px;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  padding: 31px 46px 0 46px;
+  background: #000000;
+  margin: 0 85px 50px 85px;
+  color: #ffffff;
+  height: fit-content;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-around;
+  /* gap: 75px; */
+  margin-bottom: 72px;
+}
+
+.footer-top h2 {
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 34px;
+  margin-bottom: 30px;
+}
+
+.footer-top a {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.link-container {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.link-container a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.learn-container {
+  display: flex;
+  gap: 75px;
+}
+
+.footer-bottom {
+  display: flex;
+  align-self: center;
+  text-decoration: none;
+  gap: 36px;
+  margin-bottom: 31px;
+}
+
+/* .footer-bottom {
+  align-self: center;
   text-decoration: none;
 } */
