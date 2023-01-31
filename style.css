@@ -27,7 +27,7 @@ nav {
   align-items: center;
   background-color: #ffffff;
   padding: 0 25.5px 0 15.5px;
-  margin: 52px 80px 100px 80px;
+  margin: 52px 80px 0 80px;
 }
 
 .menu {
@@ -63,6 +63,7 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 100px;
 }
 
 .header-title h1 {
@@ -396,15 +397,16 @@ footer {
   flex-direction: column;
   padding: 31px 46px 0 46px;
   background: #000000;
-  margin: 0 85px 50px 85px;
+  margin-bottom: 50px;
   color: #ffffff;
   height: fit-content;
+  width: 1271px;
+  align-self: center;
 }
 
 .footer-top {
   display: flex;
   justify-content: space-around;
-  /* gap: 75px; */
   margin-bottom: 72px;
 }
 
@@ -435,7 +437,7 @@ footer {
 
 .learn-container {
   display: flex;
-  gap: 75px;
+  gap: 60px;
 }
 
 .footer-bottom {
@@ -446,7 +448,89 @@ footer {
   margin-bottom: 31px;
 }
 
-/* .footer-bottom {
-  align-self: center;
+/* about page */
+.about-hero {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0 50px 0;
+}
+
+.main-intro {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.about-main {
+  padding: 0 80px 0 80px;
+}
+
+.improve-container {
+  background-color: #ffffff;
+  display: flex;
+  margin-bottom: 77px;
+  padding: 42px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  gap: 140px;
+}
+
+.improve-heading {
+  color: red;
+}
+
+.improve-about {
+  margin: 40px 0 50px 0;
+}
+
+.improve-link {
   text-decoration: none;
-} */
+  color: blue;
+}
+
+.who {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #efede6;
+  margin: 51px;
+  padding-top: 27px;
+}
+
+.who h1 {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 39px;
+  color: #ea4335;
+}
+
+.who p {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  margin: 38px 0 38px 0;
+}
+
+.who button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  /* gap: 10px;
+  width: 238px;
+  height: 44px; */
+  background: #1b4cf9;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  align-self: center;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 27px;
+}
