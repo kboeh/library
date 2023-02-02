@@ -109,7 +109,7 @@ nav {
   margin-bottom: 116.5px;
 }
 
-main {
+.index-main .about-main {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -521,9 +521,6 @@ footer {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  /* gap: 10px;
-  width: 238px;
-  height: 44px; */
   background: #1b4cf9;
   border: 1px solid #ffffff;
   border-radius: 5px;
@@ -533,4 +530,114 @@ footer {
   font-size: 20px;
   line-height: 24px;
   margin: 27px;
+}
+
+.books-main {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 102px;
+}
+
+.books-container {
+  padding-top: 32px;
+  display: flex;
+}
+
+.sort-filter {
+  width: 247.94px;
+  height: 58px;
+  background: #ffffff;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 38px;
+  margin-top: 32px;
+}
+
+.books-aside {
+  background: #e0e9fa;
+  border: 1px solid #d9d9d9;
+  margin-top: 13px;
+  /* width: fit-content; */
+  width: 384px;
+  height: 1957px;
+  padding: 12px 0 22px 10px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 36px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 82px;
+}
+
+.aside-heading {
+  color: blue;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.books-aside ul {
+  list-style-type: none;
+  /* margin-bottom: 82px; */
+}
+
+.book-list {
+  background-color: #ffffff;
+  padding: 0 49px 110px 45px;
+  width: 881px;
+  height: 2090px;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 38px;
+}
+
+.books-container {
+  margin-bottom: 50px;
+}
+
+.books-img {
+  margin-right: 30px;
+  width: 266px;
+  height: 344px;
+}
+
+.button-rating {
+  display: flex;
+  margin-top: 35px;
+}
+
+.button-rating button {
+  width: 164px;
+  height: 44px;
+  background: #1b4cf9;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #ffffff;
+  margin-right: 45px;
+}
+
+.star {
+  width: 34px;
+  height: 34px;
+  margin-right: 8px;
+}
+
+.score {
+  margin-left: 27px;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 36px;
+}
+
+.pages {
+  margin: 5px 0 5px 0;
 }
