@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  scroll-padding-top: 100px;
+  scroll-padding-top: 101px;
 }
 
 html {
@@ -17,112 +17,175 @@ body {
   background-color: #f8f1e2;
 }
 
+a {
+  text-decoration: none;
+}
+
 body button {
   cursor: pointer;
 }
 
-nav {
+.nav-bar {
+  position: fixed;
+  width: 100%;
+  background-color: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #ffffff;
-  padding: 0 25.5px 0 15.5px;
-  margin: 52px 80px 0 80px;
+  z-index: 1;
 }
 
-.menu {
+.logo {
+  height: auto;
+  margin-left: 16px;
+}
+
+.nav-links-list {
   display: flex;
-  align-items: center;
-  gap: 20px;
-  text-decoration: none;
-  font-style: normal;
+  flex-direction: column;
+  list-style: none;
+  gap: 43px;
+  margin-right: 40px;
+  padding: 120px 0 0 16px;
+  position: fixed;
+  top: 0;
+  right: -40px;
+  background-color: #ffffff;
+  height: 100vh;
+  width: 80%;
+  clip-path: inset(0% 0% 0% 100%);
+  -webkit-clip-path: inset(0% 0% 0% 100%);
+  transition: all 0.5s ease-out;
+  z-index: 3;
   font-weight: 400;
   font-size: 20px;
   line-height: 24px;
 }
 
-.nav-links {
-  text-decoration: none;
-  color: black;
+.nav-links,
+.nav-button {
+  color: #003b6f;
+  display: flex;
+  gap: 43px;
 }
 
-.nav-button {
-  background-color: #1b4cf9;
-  border: 1px solid #ffffff;
-  border-radius: 5px;
-  padding: 10px;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 24px;
-  color: #ffffff;
-  text-decoration: none;
+.nav-links-list.open {
+  /* how far the mobile nav extends */
+  clip-path: inset(0% 0% 0% 0%);
+  -webkit-clip-path: inset(0% 0% 0% 0%);
+  background-color: #ffffff;
+}
+
+.hamB {
+  position: fixed;
+  cursor: pointer;
+  right: 17px;
+  top: 35px;
+  z-index: 4;
+}
+
+.line {
+  width: 40px;
+  height: 5px;
+  background: #003b6f;
+  margin: 5px;
+  /* speed/effect of hamB to x */
+  transition: transform 150ms ease-in-out, opacity 200ms linear;
+}
+
+/* rotates one line into part of the X */
+.open .mid-line {
+  transform: rotate(45deg);
+}
+
+/* makes one line dissapear */
+.open .top-line {
+  opacity: 0;
+}
+
+/* rotates another line into part of the X */
+.open .bot-line {
+  transform: rotate(135deg) translate(-6px, 7px);
+}
+
+.overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.open .overlay {
+  display: initial;
 }
 
 .header-title {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: 100px;
+  margin-top: 150px;
 }
 
 .header-title h1 {
-  font-style: normal;
+  text-align: center;
   font-weight: 700;
-  font-size: 50px;
+  font-size: 40px;
   line-height: 61px;
-  margin-bottom: 28px;
+  margin: 0 5px 28px 5px;
 }
 
 .header-title p {
   font-weight: 500;
-  font-size: 25px;
+  font-size: 20px;
   line-height: 38px;
   text-align: center;
   letter-spacing: 0.1em;
   margin-bottom: 20px;
 }
 
-.header-title input {
-  font-family: "Inter";
-  width: 792px;
-  height: 57px;
+.searchbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  margin-bottom: 116.5px;
+  align-self: center;
+}
+
+.searchbar input {
+  width: 100%;
+  max-width: 792px;
+  height: 50px;
   font-weight: 500;
   font-size: 20px;
   line-height: 24px;
   background-color: #f8f1e2;
   color: #6b6868;
-  margin-right: 23px;
-  padding-left: 75px;
   border-radius: 5px;
+  text-align: start;
+  padding-left: 50px;
+  margin-right: 22px;
 }
 
 .header-title button {
   position: relative;
-  left: 65px;
-  top: 4px;
+  left: 30px;
+  top: 2px;
   background-color: transparent;
   border: none;
+  z-index: 0;
 }
 
-.searchbar {
-  margin-bottom: 116.5px;
-}
-
-.index-main .about-main {
+.index-main,
+.about-main {
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 50px 0 50px 0;
-}
-
-.book-section h2 {
-  font-weight: 400;
-  font-size: 35px;
-  line-height: 42px;
-  text-decoration-line: underline;
-  margin: 0 0 41px 80px;
-  align-self: flex-start;
 }
 
 .book-section {
@@ -131,8 +194,17 @@ nav {
   align-items: center;
 }
 
+.book-section h2 {
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 42px;
+  text-decoration-line: underline;
+  margin-bottom: 41px;
+  align-self: center;
+  text-align: center;
+}
+
 .row {
-  display: flex;
   justify-content: center;
   gap: 48px;
   width: fit-content;
@@ -170,7 +242,6 @@ nav {
 }
 
 .bottom-row {
-  display: flex;
   justify-content: center;
   gap: 72px;
   width: fit-content;
@@ -179,7 +250,6 @@ nav {
 }
 
 .bottom-row-heading {
-  margin-left: 108px;
   font-size: 40px;
   text-decoration-line: none;
 }
@@ -202,16 +272,18 @@ nav {
   font-weight: 700;
   font-size: 40px;
   line-height: 48px;
-  margin: 0 0 24px 80px;
-  align-self: flex-start;
+  margin-bottom: 24px;
+  align-self: center;
+  text-align: center;
 }
 
 .discover-descript-2 {
   font-weight: 500;
   font-size: 30px;
   line-height: 36px;
-  margin: 0 0 24px 80px;
-  align-self: flex-start;
+  margin-bottom: 24px;
+  align-self: center;
+  text-align: center;
 }
 
 .discover-section a {
@@ -219,15 +291,14 @@ nav {
   font-size: 30px;
   line-height: 36px;
   color: #1b4cf9;
-  align-self: flex-end;
-  margin: 0 87px 24px 0;
+  align-self: center;
+  margin-bottom: 24px;
   text-decoration: none;
 }
 
 .discover-row {
-  display: flex;
   gap: 118px;
-  margin-bottom: 37px;
+  margin-bottom: 100px;
 }
 
 .discover-container {
@@ -269,7 +340,9 @@ nav {
   font-size: 45px;
   line-height: 54px;
   padding-bottom: 30px;
+  text-align: center;
 }
+
 .try-descript-2 {
   font-weight: 500;
   font-size: 12px;
@@ -278,7 +351,6 @@ nav {
 }
 
 .trial-container {
-  display: flex;
   gap: 63px;
 }
 
@@ -287,7 +359,7 @@ nav {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 439px;
+  width: 350px;
   height: 316px;
   background-color: #ffffff;
   margin-bottom: 61px;
@@ -326,7 +398,7 @@ nav {
 }
 
 .trial-button {
-  width: 395px;
+  width: 300px;
   height: 41px;
   background: #1b4cf9;
   border: 1px solid #ffffff;
@@ -361,6 +433,7 @@ nav {
   font-size: 28px;
   line-height: 34px;
   margin-bottom: 30px;
+  text-align: center;
 }
 
 .testimonial-section h3 {
@@ -368,25 +441,24 @@ nav {
   font-size: 50px;
   line-height: 61px;
   margin-bottom: 55px;
+  text-align: center;
 }
 
 .testimonial-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   width: 100%;
   gap: 40px;
 }
 
 .testim-row {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .quote {
-  width: 368px;
   font-weight: 500;
   font-size: 24px;
   line-height: 36px;
@@ -399,31 +471,33 @@ nav {
 footer {
   display: flex;
   flex-direction: column;
-  padding: 31px 46px 0 46px;
+  align-items: center;
+  text-align: center;
+  padding: 31px 10px 0 10px;
   background: #000000;
   margin-bottom: 50px;
   color: #ffffff;
   height: fit-content;
-  width: 1271px;
-  align-self: center;
+  gap: 5px;
 }
 
 .footer-top {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   margin-bottom: 72px;
 }
 
 .footer-top h2 {
   font-weight: 500;
-  font-size: 28px;
+  font-size: 25px;
   line-height: 34px;
   margin-bottom: 30px;
 }
 
 .footer-top a {
   font-weight: 500;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 36px;
 }
 
@@ -432,6 +506,7 @@ footer {
   flex-direction: column;
   text-decoration: none;
   white-space: nowrap;
+  margin-bottom: 50px;
 }
 
 .link-container a {
@@ -440,7 +515,6 @@ footer {
 }
 
 .learn-container {
-  display: flex;
   gap: 60px;
 }
 
@@ -456,7 +530,13 @@ footer {
 .about-hero {
   display: flex;
   justify-content: center;
-  margin: 50px 0 50px 0;
+  margin: 150px 10px 50px 10px;
+}
+
+.about-hero img {
+  min-width: 370px;
+  max-width: 1271px;
+  height: auto;
 }
 
 .main-intro {
@@ -468,12 +548,11 @@ footer {
 }
 
 .about-main {
-  padding: 0 80px 0 80px;
+  padding: 0 20px 0 20px;
 }
 
 .improve-container {
   background-color: #ffffff;
-  display: flex;
   margin-bottom: 77px;
   padding: 42px;
   font-weight: 500;
@@ -500,8 +579,8 @@ footer {
   flex-direction: column;
   align-items: center;
   background-color: #efede6;
-  margin: 51px;
-  padding-top: 27px;
+  margin-bottom: 51px;
+  padding: 27px 25px 0 25px;
 }
 
 .who h1 {
@@ -538,14 +617,23 @@ footer {
 
 /* books page */
 .books-main {
-  display: flex;
   justify-content: center;
-  margin-bottom: 102px;
+  margin: 0 0 102px 0;
+  padding: 0 10px 0 10px;
+}
+
+.aside-books-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .books-container {
   display: flex;
-  margin-bottom: 50px;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px 0 50px 0;
+  padding-top: 50px;
+  text-align: center;
 }
 
 .sort-filter {
@@ -561,15 +649,15 @@ footer {
   font-weight: 700;
   font-size: 18px;
   line-height: 38px;
-  margin-top: 32px;
+  margin-top: 150px;
+  align-self: center;
 }
 
 .books-aside {
   background: #e0e9fa;
   border: 1px solid #d9d9d9;
   margin-top: 13px;
-  width: 384px;
-  height: 1957px;
+  width: 100%;
   padding: 12px 0 22px 10px;
   font-weight: 500;
   font-size: 18px;
@@ -578,6 +666,7 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 82px;
+  text-align: center;
 }
 
 .aside-heading {
@@ -593,21 +682,23 @@ footer {
 .book-list {
   background-color: #ffffff;
   padding: 0 49px 110px 45px;
-  width: 881px;
-  height: 2086px;
+  height: 2286px;
+  height: fit-content;
   font-weight: 500;
   font-size: 25px;
   line-height: 38px;
 }
 
 .books-img {
-  margin-right: 30px;
   width: 266px;
   height: 344px;
 }
 
 .button-rating {
   display: flex;
+  flex-direction: column;
+  gap: 13px;
+  align-items: center;
   margin-top: 35px;
 }
 
@@ -621,7 +712,6 @@ footer {
   font-size: 20px;
   line-height: 24px;
   color: #ffffff;
-  margin-right: 45px;
 }
 
 .star {
@@ -631,7 +721,6 @@ footer {
 }
 
 .score {
-  margin-left: 27px;
   font-weight: 500;
   font-size: 26px;
   line-height: 36px;
@@ -639,12 +728,14 @@ footer {
 
 .pages {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin: 5px 0 5px 0;
   font-weight: 500;
   font-size: 24px;
   line-height: 38px;
-  gap: 30px;
+  gap: 10px;
+  align-items: center;
 }
 
 .pages a {
@@ -657,6 +748,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 150px;
 }
 
 .price-main h1 {
@@ -664,6 +756,7 @@ footer {
   font-size: 34px;
   line-height: 41px;
   margin: 30px 0 45px 0;
+  text-align: center;
 }
 
 .price-main form {
@@ -673,8 +766,7 @@ footer {
   justify-content: center;
   background: #ffffff;
   border-radius: 30px;
-  padding: 64px 0 30px 0;
-  width: 825px;
+  padding: 64px 20px 30px 20px;
   height: fit-content;
 }
 
@@ -682,20 +774,17 @@ footer {
   font-weight: 700;
   font-size: 28px;
   line-height: 36px;
-  margin-bottom: 0 0 30px 60px;
-  align-self: flex-start;
-  margin-left: 60px;
+  text-align: center;
 }
 
 .price-form-2 {
   margin: 116px 0 96px 0;
+  width: fit-content;
 }
 
 .steps {
   color: #6b6868;
   margin-bottom: 3px;
-  align-self: flex-start;
-  margin-left: 60px;
 }
 
 .parenthesis {
@@ -704,7 +793,6 @@ footer {
 }
 
 .input-container {
-  display: flex;
   gap: 58px;
   margin-bottom: 31px;
 }
@@ -732,12 +820,11 @@ footer {
   background: #6b6868;
   border-radius: 5px;
   align-items: center;
-  padding: 15px 0px 20px 10px;
+  padding: 0 10px 0 10px;
   font-weight: 700;
   font-size: 24px;
   line-height: 36px;
   color: #ffffff;
-  width: 706px;
   height: 70px;
   border: transparent;
 }
@@ -750,14 +837,16 @@ footer {
 
 .prices-trial-container {
   display: flex;
-  align-self: flex-start;
+  flex-direction: column;
+  align-items: center;
   gap: 115px;
-  margin: 41px 0 50px 65px;
+  margin: 41px 0 50px 0;
 }
 
 .prices-trial-box {
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: #ffffff;
 }
 
@@ -890,4 +979,384 @@ footer {
   align-items: center;
   justify-content: center;
   gap: 15px;
+}
+
+@media (min-width: 575px) {
+  .hamB,
+  .nav-icons {
+    display: none;
+  }
+
+  .overlay {
+    height: 0;
+    width: 0;
+  }
+
+  .nav-links-list {
+    flex-direction: row;
+    padding: 0 40px 0 0;
+    margin-right: 10px;
+    position: fixed;
+    height: initial;
+    width: initial;
+    clip-path: none;
+    -webkit-clip-path: none;
+    transition: none;
+    gap: 16px;
+    text-transform: initial;
+    top: 35px;
+    right: -30px;
+  }
+
+  .nav-links-list li {
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-links {
+    color: #000000;
+    display: flex;
+    gap: 43px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .nav-button {
+    background-color: #1b4cf9;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    padding: 0 5px 0 5px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #ffffff;
+    text-decoration: none;
+  }
+}
+
+@media (min-width: 700px) {
+  .nav-links-list {
+    top: 29px;
+    right: -35px;
+  }
+
+  .nav-links {
+    font-size: 18px;
+  }
+
+  .nav-button {
+    padding: 8px 13px 8px 13px;
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  .aside-heading {
+    font-size: 30px;
+  }
+
+  .books-aside {
+    font-size: 30px;
+    line-height: 40px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .nav-bar {
+    width: auto;
+    position: initial;
+    padding: 0 25.5px 0 15.5px;
+    margin: 52px 80px 0 80px;
+  }
+
+  .nav-links-list {
+    top: 85px;
+    right: 90px;
+    position: absolute;
+  }
+
+  .nav-links {
+    font-size: 20px;
+  }
+
+  .nav-button {
+    padding: 6px 10px 6px 10px;
+    font-size: 20px;
+  }
+
+  .header-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+  }
+
+  .header-title h1 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 61px;
+    margin-bottom: 28px;
+  }
+
+  .header-title p {
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 38px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+  }
+
+  .searchbar input {
+    font-family: "Inter";
+    width: 792px;
+    height: 57px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    background-color: #f8f1e2;
+    color: #6b6868;
+    margin-right: 23px;
+    padding-left: 75px;
+    border-radius: 5px;
+  }
+
+  .header-title button {
+    position: relative;
+    left: 65px;
+    top: 4px;
+    background-color: transparent;
+    border: none;
+  }
+
+  .searchbar {
+    margin-bottom: 116.5px;
+  }
+
+  .index-main .about-main {
+    padding: 50px 0 50px 0;
+  }
+
+  .row {
+    display: flex;
+  }
+
+  .book-section {
+    align-self: center;
+  }
+
+  .book-section h2 {
+    align-self: flex-start;
+    margin: 0 0 41px 60px;
+  }
+
+  .bottom-row {
+    display: flex;
+  }
+
+  .bottom-row-heading {
+    margin-left: 108px;
+    font-size: 40px;
+    text-decoration-line: none;
+  }
+
+  .book-container img {
+    width: 166px;
+    height: 244px;
+  }
+
+  .discover-row {
+    display: flex;
+    gap: 18px;
+  }
+
+  .discover-container {
+    width: 300px;
+    height: 102px;
+  }
+
+  .trial-container {
+    display: flex;
+  }
+
+  .try-descript-1 {
+    text-align: initial;
+  }
+
+  .trial-box {
+    width: 439px;
+    height: 316px;
+  }
+
+  .testim-row {
+    justify-content: space-between;
+  }
+
+  .testimonial-container {
+    flex-direction: row;
+  }
+
+  footer {
+    align-self: center;
+    align-items: flex-start;
+    text-align: left;
+    padding: 31px 20px 0 20px;
+  }
+
+  .footer-top {
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  .learn-container {
+    display: flex;
+    gap: 40px;
+  }
+
+  .link-container {
+    margin-bottom: 0;
+  }
+
+  .about-hero {
+    margin: 50px 80px 50px 80px;
+  }
+
+  .about-main {
+    padding: 0 80px 0 80px;
+  }
+
+  .improve-container {
+    display: flex;
+  }
+
+  .input-container {
+    display: flex;
+  }
+
+  .prices-trial-container {
+    display: flex;
+  }
+
+  .price-form-2 {
+    width: 900px;
+  }
+
+  .prices-trial-container {
+    display: flex;
+    flex-direction: row;
+    gap: 115px;
+    margin: 41px 0 50px 0;
+  }
+}
+
+@media (min-width: 1335px) {
+  .book-section {
+    width: auto;
+  }
+
+  .book-section h2 {
+    align-self: flex-start;
+    margin: 0 0 41px 40px;
+  }
+
+  .book-container img {
+    width: 266px;
+    height: 344px;
+  }
+
+  .discover-descript-1 {
+    align-self: flex-start;
+    margin: 0 0 24px 80px;
+    text-align: center;
+  }
+
+  .discover-descript-2 {
+    align-self: flex-start;
+    text-align: initial;
+    margin: 0 0 24px 80px;
+  }
+
+  .discover-section a {
+    align-self: flex-end;
+    margin: 0 87px 24px 0;
+  }
+
+  .discover-container {
+    width: 347px;
+    height: 102px;
+  }
+
+  .discover-row {
+    gap: 118px;
+  }
+
+  .learn-container {
+    gap: 60px;
+  }
+
+  footer {
+    padding: 31px 46px 0 46px;
+  }
+
+  .footer-top h2 {
+    font-size: 28px;
+  }
+
+  .footer-top a {
+    font-size: 24px;
+  }
+}
+@media (min-width: 1410px) {
+  .books-main {
+    display: flex;
+    margin-bottom: 102px;
+    padding: 0 80px 0 80px;
+  }
+
+  .books-container {
+    flex-direction: row;
+    margin-bottom: 0 0 50 0;
+    padding-top: 0;
+    align-items: initial;
+    text-align: initial;
+  }
+
+  .book-list {
+    height: 2286px;
+  }
+
+  .books-aside {
+    height: 2182px;
+    text-align: start;
+    width: 384px;
+  }
+
+  .button-rating {
+    flex-direction: row;
+    gap: 10px;
+    align-items: initial;
+  }
+
+  .pages {
+    flex-direction: row;
+    gap: 30px;
+    align-items: initial;
+  }
+
+  .books-img {
+    margin-right: 30px;
+  }
+
+  .sort-filter {
+    margin-top: 32px;
+  }
+
+  .aside-heading {
+    font-size: 18px;
+  }
+
+  .books-aside {
+    font-size: 18px;
+    line-height: 36px;
+  }
 }
